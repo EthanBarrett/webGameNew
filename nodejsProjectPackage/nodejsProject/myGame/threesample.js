@@ -92,15 +92,6 @@ scene.add(group);
 group.position.y -= 4;
 
 
-//pillar tower
-const geometry5 = new THREE.CylinderGeometry( 15, 15, 60, 96 ); 
-const material5 = new THREE.MeshBasicMaterial( {color: 0xff0000} ); 
-const tower = new THREE.Mesh( geometry5, material5 ); 
-tower.position.x = 50;
-tower.position.y = 10;
-tower.position.z = -60;
-
-scene.add( tower );
 
 
 //floor

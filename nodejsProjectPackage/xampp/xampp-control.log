@@ -46,3 +46,31 @@
 09:51:29  [main] 	Deinitializing Modules
 09:51:29  [main] 	Deinitializing Control Panel
 
+22:52:12  [main] 	Initializing Control Panel
+22:52:12  [main] 	Windows Version:  Home  64-bit
+22:52:12  [main] 	XAMPP Version: 8.2.12
+22:52:12  [main] 	Control Panel Version: 3.3.0  [ Compiled: Apr 6th 2021 ]
+22:52:12  [main] 	You are not running with administrator rights! This will work for
+22:52:12  [main] 	most application stuff but whenever you do something with services
+22:52:12  [main] 	there will be a security dialogue or things will break! So think 
+22:52:12  [main] 	about running this application with administrator rights!
+22:52:12  [main] 	XAMPP Installation Directory: "d:\webgamenew\nodejsprojectpackage\xampp\"
+22:52:13  [main] 	Checking for prerequisites
+22:52:19  [main] 	All prerequisites found
+22:52:19  [main] 	Initializing Modules
+22:52:19  [main] 	The FileZilla module is disabled
+22:52:19  [main] 	The Mercury module is disabled
+22:52:19  [main] 	Starting Check-Timer
+22:52:19  [main] 	Control Panel Ready
+22:52:22  [Apache] 	Attempting to start Apache app...
+22:52:22  [Apache] 	Status change detected: running
+22:52:22  [mysql] 	Attempting to start MySQL app...
+22:52:23  [mysql] 	Status change detected: running
+23:05:28  [mysql] 	Attempting to stop MySQL app...
+23:05:29  [mysql] 	Status change detected: stopped
+23:05:29  [Apache] 	Attempting to stop Apache (PID: 18636)
+23:05:29  [Apache] 	Attempting to stop Apache (PID: 19036)
+23:05:29  [Apache] 	Status change detected: stopped
+23:06:19  [main] 	Deinitializing Modules
+23:06:19  [main] 	Deinitializing Control Panel
+
