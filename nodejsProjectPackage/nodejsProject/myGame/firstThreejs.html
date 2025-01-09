@@ -6,6 +6,7 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="loader.js" defer></script>
     
     </head>
 
@@ -79,6 +80,8 @@
             left: 40px; 
         }
 
+        
+
       
     </style>
    
@@ -86,7 +89,7 @@
       
         <a href="index.html" style="color:rgb(255, 4, 4);"> HomePage</a> 
         <a href="firstThreejs.html" style="color:rgb(255, 4, 4);"> Game Page</a> 
-        <a href="frontpage.html" style="color:rgb(255, 4, 4);"> Login Page</a> 
+        <a href="loginpage.html" style="color:rgb(255, 4, 4);"> Login Page</a> 
         <a href="frontpage.html" style="color:rgb(255, 4, 4);"> Register Page</a> 
         <a href="" style="color:rgb(255, 4, 4);"> 404 Page</a> 
  
@@ -114,20 +117,86 @@
           const scoredisplay = document.getElementById('score'); 
           const increaseScoreBtn = document.getElementById('increase-score');
 
-          function updateScore() {
-            scoreDisplay.textContent = score;
-        }
+          let scoreInterval;
 
-          
-            score += 10; // Increment by 10
-            updateScore();
+          const userId = 1; // Replace with the actual user ID from your game
+
+
+function getScore(userId) {
+    fetch(`http://localhost:3000/getScore/${userId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error fetching score from server');
+            }
+            return response.json();
+        })
+        .then(data => {
+            score = data.score; 
+            scoredisplay.innerHTML = `${score}`;
+        })
+        .catch(error => {
+            console.error('Failed to fetch score:', error);
+        });
+}
+
+
+function updateScore(userId, score) {
+    fetch('http://localhost:3000/updateScore', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userId, score }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error updating score on server');
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log('Server response:', data);
+        })
+        .catch(error => {
+            console.error('Failed to update score:', error);
+        });
+}
+
+
+scoredisplay.innerHTML = `${score}`;
+
+
+function startScoreTimer() {
+    scoreInterval = setInterval(() => {
+        score += 1; 
+        scoredisplay.innerHTML = `${score}`;
+        updateScore(userId, score); 
+    }, 5000); 
+}
+
+// Function to stop the score timer
+function stopScoreTimer() {
+    clearInterval(scoreInterval);
+}
+
+// Function to reset the score
+function resetScore() {
+    score = 0; 
+    scoredisplay.innerHTML = `${score}`;
+    updateScore(userId, score);
+    stopScoreTimer();
+    startScoreTimer(); 
+}
+
+getScore(userId);
+
+startScoreTimer();
        
-
 
         </script>
 
         <audio controls autoplay loop>
-            <source src="space-traveller-62973.mp3" type="audio/mpeg">
+            <source src="sound/space-traveller-62973.mp3" type="audio/mpeg">
         </audio>
 
         
@@ -139,7 +208,7 @@
         
         <script type="module" src="threesample.js"></script>       
         
-     
+        <div class="loader"></div>
        
     </body>
 </html>

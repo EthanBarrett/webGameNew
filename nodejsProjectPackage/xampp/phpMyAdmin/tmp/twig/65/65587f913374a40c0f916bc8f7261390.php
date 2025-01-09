@@ -85,6 +85,6 @@ echo _gettext("Close");
 
     public function getSourceContext()
     {
-        return new Source("", "modals/preview_sql_confirmation.twig", "D:\\xampp\\phpMyAdmin\\templates\\modals\\preview_sql_confirmation.twig");
+        return new Source("", "modals/preview_sql_confirmation.twig", "D:\\webGameNew\\nodejsProjectPackage\\xampp\\phpMyAdmin\\templates\\modals\\preview_sql_confirmation.twig");
     }
 }

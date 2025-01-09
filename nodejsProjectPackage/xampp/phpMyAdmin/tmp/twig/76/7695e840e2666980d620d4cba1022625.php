@@ -79,6 +79,6 @@ echo _gettext("With selected:");
 
     public function getSourceContext()
     {
-        return new Source("", "select_all.twig", "D:\\xampp\\phpMyAdmin\\templates\\select_all.twig");
+        return new Source("", "select_all.twig", "D:\\webGameNew\\nodejsProjectPackage\\xampp\\phpMyAdmin\\templates\\select_all.twig");
     }
 }

@@ -1510,6 +1510,6 @@ echo _gettext("Partitions");
 
     public function getSourceContext()
     {
-        return new Source("", "table/structure/display_structure.twig", "D:\\xampp\\phpMyAdmin\\templates\\table\\structure\\display_structure.twig");
+        return new Source("", "table/structure/display_structure.twig", "D:\\webGameNew\\nodejsProjectPackage\\xampp\\phpMyAdmin\\templates\\table\\structure\\display_structure.twig");
     }
 }

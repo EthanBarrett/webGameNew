@@ -64,6 +64,6 @@ class __TwigTemplate_c7cf312597255a5b04cb7ae60d4254d4 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "table/search/column_comparison_operators.twig", "D:\\xampp\\phpMyAdmin\\templates\\table\\search\\column_comparison_operators.twig");
+        return new Source("", "table/search/column_comparison_operators.twig", "D:\\webGameNew\\nodejsProjectPackage\\xampp\\phpMyAdmin\\templates\\table\\search\\column_comparison_operators.twig");
     }
 }

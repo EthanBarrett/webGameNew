@@ -494,6 +494,6 @@ echo _gettext("Cancel");
 
     public function getSourceContext()
     {
-        return new Source("", "table/search/index.twig", "D:\\xampp\\phpMyAdmin\\templates\\table\\search\\index.twig");
+        return new Source("", "table/search/index.twig", "D:\\webGameNew\\nodejsProjectPackage\\xampp\\phpMyAdmin\\templates\\table\\search\\index.twig");
     }
 }

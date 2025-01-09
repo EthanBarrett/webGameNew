@@ -94,6 +94,6 @@ class __TwigTemplate_9b71865cc6871e96e8f1ac291b56f597 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "display/results/table_headers_for_columns.twig", "D:\\xampp\\phpMyAdmin\\templates\\display\\results\\table_headers_for_columns.twig");
+        return new Source("", "display/results/table_headers_for_columns.twig", "D:\\webGameNew\\nodejsProjectPackage\\xampp\\phpMyAdmin\\templates\\display\\results\\table_headers_for_columns.twig");
     }
 }

@@ -308,6 +308,6 @@ class __TwigTemplate_71869a63fda57eb869ff1e3f9acc7202 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "table/search/input_box.twig", "D:\\xampp\\phpMyAdmin\\templates\\table\\search\\input_box.twig");
+        return new Source("", "table/search/input_box.twig", "D:\\webGameNew\\nodejsProjectPackage\\xampp\\phpMyAdmin\\templates\\table\\search\\input_box.twig");
     }
 }

@@ -108,7 +108,7 @@ const geometry10 = new THREE.SphereGeometry( 15, 32, 16 );
 const material10 = new THREE.MeshBasicMaterial( { color: 0xffff00 } ); 
 const bullet = new THREE.Mesh( geometry10, material10 );
  scene.add( bullet );
- bullet.position.z = -150;
+ bullet.position.z = -300;
  bullet.position.y = 10;
 
  
@@ -123,6 +123,7 @@ const createManyObjs=()=>
 		const material2 = new THREE.MeshPhongMaterial({color:0x2eabef});
 
 const object = new THREE.Mesh(geometry, material2 );
+
 //random position
 object.position.x = Math.random() * 200 - 100;
 object.position.y = Math.random() * 20;
@@ -149,9 +150,9 @@ const animateObjects = (objects) => {
 
 	  if(object.position.z >= 300)
 	  {
-		object.position.z = Math.random() *-200 -250;
-		object.position.x =  Math.random() * 180 - 230;
-		object.scale.z = Math.random() + 20;
+		object.position.x = Math.random() * 200 - 100;
+		object.position.y = Math.random() * 20;
+		object.position.z = Math.random() *-180 -230;
 	  }
 	  
 	});
@@ -330,8 +331,38 @@ document.getElementById("upbutton").addEventListener("click", moveup);
 document.getElementById("downbutton").addEventListener("click", movedown);
 document.getElementById("rightbutton").addEventListener("click", moveright);
 
+function checkCollisions() {
+    // Create a bounding box for the player group
+    const playerBox = new THREE.Box3().setFromObject(group);
+
+    // Check collision with objects in the `objects` array
+    objects.forEach((object) => {
+        const objectBox = new THREE.Box3().setFromObject(object);
+        if (playerBox.intersectsBox(objectBox)) {
+            console.log("Collision detected with object!");
+            resetscene(scene)
+			resetScore();
+        }
+    });
+
+    // Check collision with objects in the `objects2` array
+    objects2.forEach((object) => {
+        const objectBox = new THREE.Box3().setFromObject(object);
+        if (playerBox.intersectsBox(objectBox)) {
+            console.log("Collision detected with object2!");
+            resetscene(scene)
+			resetScore();
+        }
+    });
+}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const bulletBox = new THREE.Box3().setFromObject(bullet);
+const groupBox = new THREE.Box3().setFromObject(group);
+
+
 //animate
 function animate() {
 	//requestAnimationFrame (animate);
@@ -348,7 +379,7 @@ function animate() {
 	if(bullet.position.z >= 200) 
 		{
 			bullet.position.x = Math.random() * 200 - 100;
-		   bullet.position.z = -200;
+		   	bullet.position.z = -300;
 		}
 
 
@@ -389,6 +420,71 @@ function animate() {
 		right = false;
 	}
 
+	bulletBox.setFromObject(bullet);
+	groupBox.setFromObject(group);
+
+
+	checkCollisions();
+
+	if (bulletBox.intersectsBox(groupBox)) 
+	{
+		console.log("collision dected!");
+		resetscene(scene);
+		resetScore();
+		
+	}
+
 	renderer.render( scene, camera );
+	startScoreTimer();
 
 }
+
+
+
+function resetscene(scene)
+{
+	group.position.x = 0;
+	group.position.y -= 0;
+	bullet.position.z = -200;
+	camera.position.z = 80;
+	camera.position.y = 50;
+	camera.position.x = 0;
+	bullet.position.x = Math.random() * 200 - 100;
+
+	objects.forEach((object) => {
+        object.position.x = Math.random() * 200 - 100; // Random X position
+        object.position.y = Math.random() * 20;       // Random Y position
+        object.position.z = Math.random() * -200 - 250; // Random Z position
+
+        
+        object.scale.x = Math.random() + 50 - 40;
+        object.scale.y = Math.random() + 20 - 10;
+        object.scale.z = Math.random() + 20;
+
+       
+        
+    });
+
+  
+    objects2.forEach((object) => {
+        object.position.x = Math.random() * 200 - 100; // Random X position
+        object.position.y = Math.random() * 20;       // Random Y position
+        object.position.z = Math.random() * -400 - 450; // Random Z position
+
+     
+        object.scale.x = Math.random() + 50 - 40;
+        object.scale.y = Math.random() + 20 - 10;
+        object.scale.z = Math.random() + 20;
+
+       
+        
+    });
+
+}
+
+
+
+getScore(userId);
+
+
+

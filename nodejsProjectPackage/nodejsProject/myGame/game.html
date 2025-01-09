@@ -5,6 +5,8 @@
      Put your page here 
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="loader.js" defer></script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
     </head>
 
     <style>
@@ -22,7 +24,7 @@
         <header> 
         <a href="index.html" style="color:rgb(255, 4, 4);"> HomePage</a> <br>
         <a href="firstThreejs.html" style="color:rgb(255, 4, 4);"> Game Page</a> <br>
-        <a href="frontpage.html" style="color:rgb(255, 4, 4);"> Login Page</a> <br>
+        <a href="loginpage.html" style="color:rgb(255, 4, 4);"> Login Page</a> <br>
         <a href="frontpage.html" style="color:rgb(255, 4, 4);"> Register Page</a> <br>
         <a href="" style="color:rgb(255, 4, 4);"> 404 Page</a> <br>
     </header>
@@ -39,10 +41,10 @@
         </style>
       
         <h2 style="color:rgb(255, 4, 4);">This is an adventure game.</h2>
-        <p> this game is engading</p>
+        <h2> nebual survivor is a survivor game where the goal is to gain the highest score</h2>
+        <h2> click left and right to avoid incoming planets and survive</h2>
     
-        <button onclick="alert('it is clicked');"> click me </button>
-        <p id="result"> this is result</p>
+
 
         <script> 
             console.log("First script");
@@ -55,6 +57,8 @@
           document.getElementById("result").innerHTML = message(); 
 
         </script>
+
+    <div class="loader"></div>
 
     </body>
 </html>
